@@ -10,7 +10,8 @@ float roseAmount = 0.7;
 void setup() {
   fullScreen(P2D, SPAN);
   frameRate(desiredFrameRate);
-  video = new Capture(this, width, height, desiredFrameRate);
+  String[] cameras = Capture.list();
+  video = new Capture(this, cameras[0]);
   video.start();   
   background(0);
   noSmooth();
