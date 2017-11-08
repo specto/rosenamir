@@ -14,6 +14,7 @@ void setup() {
   video.start();   
   background(0);
   noSmooth();
+  noCursor();
 }
 
 void draw() {
