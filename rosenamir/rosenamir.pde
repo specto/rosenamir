@@ -2,7 +2,7 @@ import processing.video.*;
 
 Capture video;
 
-int desiredFrameRate = 30;
+int desiredFrameRate = 60;
 color roseColor = color(240, 110, 170);
 
 void settings() {
