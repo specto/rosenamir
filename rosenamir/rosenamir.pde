@@ -5,18 +5,21 @@ Capture video;
 int desiredFrameRate = 30;
 color roseColor = color(240, 110, 170);
 
-void setup() {
-  //fullScreen(P2D, SPAN);
-  fullScreen(P2D);
-  
+void settings() {
+  fullScreen(P2D, SPAN);
+  //size(800, 800, P2D);
+}
+
+void setup() {  
   frameRate(desiredFrameRate);
-  String[] cameras = Capture.list();
-  println("number of cameras:", cameras.length);
-  printArray(cameras);
-  video = new Capture(this, cameras[0]);
+  //String[] cameras = Capture.list();
+  //println("number of cameras:", cameras.length);
+  //printArray(cameras);
+  
+  video = new Capture(this, 1600, 1200, "WC060 Series HD Webcam");
   video.start();   
   background(0);
-  noSmooth();
+  noSmooth();  
   noCursor();
 }
 
