@@ -1,19 +1,26 @@
-import processing.video.*;
+//import processing.video.*;
+import gohai.glvideo.*;
 
-Capture video;
+GLCapture video;
 
 int desiredFrameRate = 30;
 color roseColor = color(240, 110, 170);
 
 void setup() {
   //fullScreen(P2D, SPAN);
-  fullScreen(P2D);
+  fullScreen(P2D, SPAN);
+  //surface.setResizable(true);
   
   frameRate(desiredFrameRate);
-  String[] cameras = Capture.list();
-  println("number of cameras:", cameras.length);
+  String[] cameras = GLCapture.list();
+  println("Devices:");
   printArray(cameras);
-  video = new Capture(this, cameras[0]);
+  if (0 < cameras.length) {
+    String[] configs = GLCapture.configs(cameras[0]);
+    println("Configs:");
+    printArray(configs);
+  }
+  video = new GLCapture(this, cameras[0]);
   video.start();   
   background(0);
   noSmooth();
