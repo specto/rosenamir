@@ -1,6 +1,7 @@
 import processing.video.*;
 
 Capture video;
+PImage videoimg;
 
 int desiredFrameRate = 60;
 color roseColor = color(240, 110, 170);
@@ -28,7 +29,7 @@ void draw() {
     video.read();
   }
   
-  PImage videoimg = video.get();
+  videoimg = video.get();
   noStroke();
   textureMode(NORMAL);
   noTint();
@@ -56,4 +57,5 @@ void draw() {
   vertex(width, height, 1, 1);
   vertex(width, 0, 1, 0);
   endShape();
+  g.removeCache(videoimg);
 }
